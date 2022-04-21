@@ -1,15 +1,13 @@
 import React from "react";
 
-import { Container, Image, Text } from "./styles";
+import { Container } from "./styles";
 
-import logo from "../../assets/images/MarvelLogo.png";
+import { MainHeader } from "../../components/MainHeader";
 
 export function Home() {
   return (
     <Container>
-      <Image source={logo} />
-
-      <Text>BEST CHARACTERS</Text>
+      <MainHeader />
     </Container>
   );
 }
