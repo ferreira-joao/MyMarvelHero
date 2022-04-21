@@ -1,11 +1,15 @@
 import React from "react";
 
-import { Container, Text } from "./styles";
+import { Container, Image, Text } from "./styles";
+
+import logo from "../../assets/images/MarvelLogo.png";
 
 export function Home() {
   return (
     <Container>
-      <Text>JOTA VITOR FERREIRA SOUSA CAVALCANTE</Text>
+      <Image source={logo} />
+
+      <Text>BEST CHARACTERS</Text>
     </Container>
   );
 }
