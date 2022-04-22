@@ -1,3 +1,4 @@
+import { Animated } from "react-native";
 import styled from "styled-components/native";
 
 import theme from "../../global/theme";
@@ -15,6 +16,7 @@ export const SearchContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 `;
 
 export const Text = styled.Text`
@@ -27,4 +29,9 @@ export const SearchButton = styled.TouchableOpacity`
   border-radius: 20px;
   padding: 5px;
   background-color: #f2f2f2;
+`;
+
+export const Box = styled(Animated.View)`
+  width: 100%;
+  background-color: red;
 `;
