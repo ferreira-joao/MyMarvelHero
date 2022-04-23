@@ -6,15 +6,18 @@ import {
   SearchContainer,
   Text,
   SearchButton,
-  Box,
+  InputContainer,
+  MainInput,
 } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import logo from "../../assets/images/MarvelLogo.png";
-import { Animated, Easing } from "react-native";
+
+import { Animated, Easing, Keyboard } from "react-native";
 
 export function MainHeader() {
   const [visible, setVisible] = useState(false);
+  const [show, setShow] = useState(false);
 
   const [animValue] = useState(new Animated.Value(0));
 
@@ -29,10 +32,12 @@ export function MainHeader() {
   function handleShow() {
     Animated.timing(animValue, {
       toValue: 1,
-      duration: 1000,
-      easing: Easing.bounce,
+      duration: 200,
+      easing: Easing.ease,
       useNativeDriver: false,
     }).start();
+
+    setShow(true);
   }
 
   function handleHide() {
@@ -42,6 +47,9 @@ export function MainHeader() {
       easing: Easing.ease,
       useNativeDriver: false,
     }).start();
+
+    Keyboard.dismiss();
+    setShow(false);
   }
 
   const heightAnimation = animValue.interpolate({
@@ -54,14 +62,20 @@ export function MainHeader() {
       <Image source={logo} />
 
       <SearchContainer>
-        <Text>SEARCH YOU FAVORITE HERO</Text>
+        <Text>SEARCH YOUR FAVORITE HERO</Text>
 
         <SearchButton onPress={() => setVisible((p) => !p)}>
           <Icon name="search-outline" size={30} color={"#000"} />
         </SearchButton>
       </SearchContainer>
 
-      <Box style={{ height: heightAnimation }} />
+      <InputContainer style={{ height: heightAnimation }} show={show}>
+        <MainInput
+          show={show}
+          placeholder={"Type here..."}
+          placeholderTextColor={"#999999"}
+        />
+      </InputContainer>
     </Container>
   );
 }

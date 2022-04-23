@@ -1,7 +1,11 @@
 import { Animated } from "react-native";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 import theme from "../../global/theme";
+
+interface IMainInput {
+  show: boolean;
+}
 
 export const Container = styled.View``;
 
@@ -31,7 +35,28 @@ export const SearchButton = styled.TouchableOpacity`
   background-color: #f2f2f2;
 `;
 
-export const Box = styled(Animated.View)`
+export const InputContainer = styled(Animated.View)<IMainInput>`
   width: 100%;
-  background-color: red;
+  ${(props) =>
+    props.show
+      ? css`
+          margin-bottom: 10px;
+        `
+      : css`
+          margin-bottom: 0;
+        `}
+`;
+
+export const MainInput = styled.TextInput.attrs({ elevation: 5 })<IMainInput>`
+  width: 100%;
+  border-radius: 8px;
+  padding-left: 15px;
+  color: ${theme.colors.default_title};
+  background-color: #fff;
+  ${(props) =>
+    props.show
+      ? css``
+      : css`
+          display: none;
+        `}
 `;
