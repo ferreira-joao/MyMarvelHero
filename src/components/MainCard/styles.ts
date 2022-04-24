@@ -3,12 +3,15 @@ import styled from "styled-components/native";
 import theme from "../../global/theme";
 
 export const Container = styled.View`
-  flex: 1;
+  flex: 0.5;
+  margin-bottom: 5px;
+  align-items: center;
 `;
 
 export const Poster = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 150px;
+  border-radius: 8px;
 `;
 
 export const Title = styled.Text`

@@ -29,6 +29,7 @@ export function Home() {
         renderItem={renderMainCard}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: 20 }}
         ListHeaderComponent={<MainHeader />}
       />
     </Container>
