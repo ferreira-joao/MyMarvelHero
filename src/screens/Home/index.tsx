@@ -1,27 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { FlatList } from "react-native";
 
 import { Container } from "./styles";
 
 import { MainHeader } from "../../components/MainHeader";
 
 import { getCharacters } from "../../services/apiCalls";
+import { renderMainCard } from "../../utils/renderMainCard";
 
 export function Home() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState();
 
-  const handleCharacters = async () => {
+  const handleCharactersCall = async () => {
     const list = await getCharacters();
 
     setCharacters(list);
   };
 
   useEffect(() => {
-    console.log(characters);
+    handleCharactersCall();
   }, []);
 
   return (
     <Container>
-      <MainHeader />
+      <FlatList
+        data={characters}
+        numColumns={2}
+        renderItem={renderMainCard}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={<MainHeader />}
+      />
     </Container>
   );
 }
