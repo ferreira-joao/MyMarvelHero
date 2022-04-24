@@ -87,7 +87,7 @@ export function MainHeader() {
 
   return (
     <Container>
-      <Image source={logo} />
+      <Image source={logo} resizeMode="contain" />
 
       <SearchContainer>
         <Text>SEARCH YOUR FAVORITE HERO</Text>
