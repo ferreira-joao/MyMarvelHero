@@ -10,7 +10,7 @@ import { renderMainCard } from "../../utils/renderMainCard";
 import { CharactersContext } from "../../contexts/CharactersContext";
 
 export function Home() {
-  const [characters, setCharacters] = useContext(CharactersContext);
+  const [characters] = useContext(CharactersContext);
 
   return (
     <Container>

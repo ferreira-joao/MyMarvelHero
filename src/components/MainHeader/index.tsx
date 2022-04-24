@@ -28,6 +28,7 @@ export function MainHeader() {
 
   const [characters, setCharacters] = useContext(CharactersContext);
 
+  // handle animation actions
   useEffect(() => {
     if (visible) {
       handleShow();
@@ -36,16 +37,26 @@ export function MainHeader() {
     }
   }, [visible]);
 
+  // handle api call
   const handleCharacters = async () => {
     const list = await getCharacters(search);
 
     setCharacters(list);
   };
 
-  useEffect(() => {
-    handleCharacters();
-  }, []);
+  const handleChange = (e: string) => {
+    setSearch(e);
+  };
 
+  useEffect(() => {
+    if (search === "") {
+      setSearch("A");
+    } else {
+      handleCharacters();
+    }
+  }, [search]);
+
+  // Animation functions
   function handleShow() {
     Animated.timing(animValue, {
       toValue: 1,
@@ -91,6 +102,7 @@ export function MainHeader() {
           show={show}
           placeholder={"Type here..."}
           placeholderTextColor={"#999999"}
+          onChange={(e) => handleChange(e.nativeEvent.text)}
         />
       </InputContainer>
     </Container>
