@@ -12,10 +12,38 @@ export const Poster = styled.Image`
   width: 130px;
   height: 150px;
   border-radius: 8px;
+  margin-bottom: 3px;
 `;
 
 export const Title = styled.Text`
-  color: ${theme.colors.default_title};
   font-size: 15px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+  color: ${theme.colors.default_title};
   font-family: ${theme.fonts.bold};
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const AboutButton = styled.TouchableOpacity`
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 10px;
+  background-color: ${theme.colors.primary};
+`;
+
+export const MoreButton = styled.TouchableOpacity`
+  padding: 10px;
+  border-radius: 8px;
+  background-color: ${theme.colors.primary};
+`;
+
+export const ButtonText = styled.Text`
+  font-size: 12px;
+  color: ${theme.colors.light_text};
+  font-family: ${theme.fonts.bold};
+  text-transform: uppercase;
 `;
