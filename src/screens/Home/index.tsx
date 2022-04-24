@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { FlatList } from "react-native";
 
 import { Container } from "./styles";
 
 import { MainHeader } from "../../components/MainHeader";
 
-import { getCharacters } from "../../services/apiCalls";
 import { renderMainCard } from "../../utils/renderMainCard";
 
+import { CharactersContext } from "../../contexts/CharactersContext";
+
 export function Home() {
-  const [characters, setCharacters] = useState();
-
-  const handleCharactersCall = async () => {
-    const list = await getCharacters();
-
-    setCharacters(list);
-  };
-
-  useEffect(() => {
-    handleCharactersCall();
-  }, []);
+  const [characters, setCharacters] = useContext(CharactersContext);
 
   return (
     <Container>

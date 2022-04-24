@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import {
   Container,
@@ -15,11 +15,18 @@ import logo from "../../assets/images/MarvelLogo.png";
 
 import { Animated, Easing, Keyboard } from "react-native";
 
+import { getCharacters } from "../../services/apiCalls";
+
+import { CharactersContext } from "../../contexts/CharactersContext";
+
 export function MainHeader() {
   const [visible, setVisible] = useState(false);
   const [show, setShow] = useState(false);
+  const [search, setSearch] = useState("A");
 
   const [animValue] = useState(new Animated.Value(0));
+
+  const [characters, setCharacters] = useContext(CharactersContext);
 
   useEffect(() => {
     if (visible) {
@@ -28,6 +35,16 @@ export function MainHeader() {
       handleHide();
     }
   }, [visible]);
+
+  const handleCharacters = async () => {
+    const list = await getCharacters(search);
+
+    setCharacters(list);
+  };
+
+  useEffect(() => {
+    handleCharacters();
+  }, []);
 
   function handleShow() {
     Animated.timing(animValue, {
