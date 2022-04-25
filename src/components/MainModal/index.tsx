@@ -31,7 +31,7 @@ export function MainModal({ visible, description, onClose }: IMainModal) {
               <Description>{description}</Description>
             ) : (
               <NoDescription>
-                No description found for this hero :(
+                No description found for this character :(
               </NoDescription>
             )}
           </CenteredContainer>
