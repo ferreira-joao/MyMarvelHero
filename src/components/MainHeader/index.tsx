@@ -77,6 +77,7 @@ export function MainHeader() {
     }).start();
 
     Keyboard.dismiss();
+
     setShow(false);
   }
 

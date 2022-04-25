@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -11,13 +11,22 @@ import {
 
 import Icon from "react-native-vector-icons/Ionicons";
 
+import { MainModal } from "../MainModal";
+
 interface IMainCard {
   id: number;
   image: string;
   name: string;
+  description: string;
 }
 
-export function MainCard({ id, image, name }: IMainCard) {
+export function MainCard({ id, image, name, description }: IMainCard) {
+  const [visible, setVisible] = useState(false);
+
+  function handleModal() {
+    setVisible(!visible);
+  }
+
   return (
     <Container>
       <Poster
@@ -25,7 +34,7 @@ export function MainCard({ id, image, name }: IMainCard) {
         source={{ uri: image }}
         resizeMode="cover"
       >
-        <SearchButton>
+        <SearchButton onPress={handleModal}>
           <Icon name="reader-outline" size={20} color={"#FFF"} />
         </SearchButton>
       </Poster>
@@ -35,6 +44,12 @@ export function MainCard({ id, image, name }: IMainCard) {
       <ComicsButton>
         <ButtonText>COMICS</ButtonText>
       </ComicsButton>
+
+      <MainModal
+        visible={visible}
+        description={description}
+        onClose={handleModal}
+      />
     </Container>
   );
 }

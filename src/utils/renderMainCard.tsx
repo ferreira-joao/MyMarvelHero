@@ -6,6 +6,7 @@ interface IMainCard {
   item: {
     id: number;
     name: string;
+    description: string;
     thumbnail: { path: string; extension: string };
   };
 }
@@ -17,5 +18,12 @@ export function renderMainCard({ item }: IMainCard) {
       "https"
     );
 
-  return <MainCard id={item.id} image={image_url} name={item.name} />;
+  return (
+    <MainCard
+      id={item.id}
+      image={image_url}
+      name={item.name}
+      description={item.description}
+    />
+  );
 }

@@ -50,12 +50,13 @@ export const InputContainer = styled(Animated.View)<IMainInput>`
 export const MainInput = styled.TextInput.attrs({ elevation: 5 })<IMainInput>`
   width: 100%;
   border-radius: 8px;
-  padding-left: 15px;
   color: ${theme.colors.default_title};
   background-color: #fff;
   ${(props) =>
     props.show
-      ? css``
+      ? css`
+          padding-left: 15px;
+        `
       : css`
           display: none;
         `}
