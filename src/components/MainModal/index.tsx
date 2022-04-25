@@ -6,6 +6,7 @@ import {
   CenteredContainer,
   CloseButton,
   Description,
+  NoDescription,
 } from "./styles";
 
 import Icon from "react-native-vector-icons/Ionicons";
@@ -26,7 +27,13 @@ export function MainModal({ visible, description, onClose }: IMainModal) {
               <Icon name="close-outline" size={30} color={"#000"} />
             </CloseButton>
 
-            <Description>{description}</Description>
+            {description !== "" ? (
+              <Description>{description}</Description>
+            ) : (
+              <NoDescription>
+                No description found for this hero :(
+              </NoDescription>
+            )}
           </CenteredContainer>
         </Container>
       </Modal>

@@ -29,3 +29,11 @@ export const Description = styled.Text`
   font-family: ${theme.fonts.bold};
   text-align: center;
 `;
+
+export const NoDescription = styled.Text`
+  margin-top: 15px;
+  font-size: 15px;
+  color: ${theme.colors.primary};
+  font-family: ${theme.fonts.bold};
+  text-align: center;
+`;
