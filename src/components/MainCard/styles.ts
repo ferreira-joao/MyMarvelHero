@@ -30,23 +30,13 @@ export const Title = styled.Text`
   flex-wrap: wrap;
   color: ${theme.colors.default_title};
   font-family: ${theme.fonts.bold};
+  text-align: center;
 `;
 
-export const ButtonContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const AboutButton = styled.TouchableOpacity`
+export const ComicsButton = styled.TouchableOpacity`
   padding: 10px;
   border-radius: 8px;
   margin-right: 10px;
-  background-color: ${theme.colors.primary};
-`;
-
-export const MoreButton = styled.TouchableOpacity`
-  padding: 10px;
-  border-radius: 8px;
   background-color: ${theme.colors.primary};
 `;
 
@@ -55,4 +45,5 @@ export const ButtonText = styled.Text`
   color: ${theme.colors.light_text};
   font-family: ${theme.fonts.bold};
   text-transform: uppercase;
+  text-align: center;
 `;

@@ -5,9 +5,7 @@ import {
   Poster,
   SearchButton,
   Title,
-  ButtonContainer,
-  AboutButton,
-  MoreButton,
+  ComicsButton,
   ButtonText,
 } from "./styles";
 
@@ -32,17 +30,11 @@ export function MainCard({ id, image, name }: IMainCard) {
         </SearchButton>
       </Poster>
 
-      <Title numberOfLines={2}>{name}</Title>
+      <Title numberOfLines={1}>{name}</Title>
 
-      <ButtonContainer>
-        <AboutButton>
-          <ButtonText>About</ButtonText>
-        </AboutButton>
-
-        <MoreButton>
-          <ButtonText>More</ButtonText>
-        </MoreButton>
-      </ButtonContainer>
+      <ComicsButton>
+        <ButtonText>COMICS</ButtonText>
+      </ComicsButton>
     </Container>
   );
 }
