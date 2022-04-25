@@ -8,11 +8,20 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const Poster = styled.Image`
+export const Poster = styled.ImageBackground`
   width: 130px;
   height: 150px;
   border-radius: 8px;
   margin-bottom: 3px;
+`;
+
+export const SearchButton = styled.TouchableOpacity`
+  border-radius: 20px;
+  padding: 5px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: ${theme.colors.primary};
 `;
 
 export const Title = styled.Text`

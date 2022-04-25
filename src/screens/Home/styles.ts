@@ -4,5 +4,5 @@ import theme from "../../global/theme";
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${theme.colors.tertiary};
+  background-color: ${theme.colors.light_background};
 `;
