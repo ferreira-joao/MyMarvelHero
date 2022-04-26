@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home } from "../screens/Home";
 import { Comics } from "../screens/Comics";
 
+//each screen needs to be passed here with params if needed
 export type IRoute = {
   Home: undefined;
   Comics: { characterId: number };

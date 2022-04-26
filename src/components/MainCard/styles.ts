@@ -11,7 +11,6 @@ export const Container = styled.View`
 export const Poster = styled.ImageBackground`
   width: 130px;
   height: 150px;
-  border-radius: 8px;
   margin-bottom: 3px;
 `;
 
