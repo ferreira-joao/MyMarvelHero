@@ -13,3 +13,14 @@ export const getCharacters = (nameStart?: string) => {
     })
     .catch((err) => console.log("Erro: " + err));
 };
+
+export const getComics = (characterId: number) => {
+  return api
+    .get(
+      `/characters/${characterId}/comics?ts=1&apikey=${apikey}&hash=${hash}&limit=20`
+    )
+    .then((res) => {
+      return res.data.data.results;
+    })
+    .catch((err) => console.log("Erro: " + err));
+};

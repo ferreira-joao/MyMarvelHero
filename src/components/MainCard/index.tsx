@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 import {
   Container,
   Poster,
@@ -23,8 +26,14 @@ interface IMainCard {
 export function MainCard({ id, image, name, description }: IMainCard) {
   const [visible, setVisible] = useState(false);
 
+  const navigation = useNavigation<NativeStackNavigationProp<any>>(); //fix type 'never' on navigate
+
   function handleModal() {
     setVisible(!visible);
+  }
+
+  function comicScreen() {
+    navigation.navigate("Comics", { characterId: id });
   }
 
   return (
@@ -41,7 +50,7 @@ export function MainCard({ id, image, name, description }: IMainCard) {
 
       <Title numberOfLines={1}>{name}</Title>
 
-      <ComicsButton>
+      <ComicsButton onPress={comicScreen}>
         <ButtonText>COMICS</ButtonText>
       </ComicsButton>
 
