@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import { FlatList } from "react-native";
+import { FlatList, ActivityIndicator } from "react-native";
 
 import { RouteProp, useRoute } from "@react-navigation/native";
 
-import { Container } from "./styles";
+import { Container, EmptyText } from "./styles";
 
 import { getComics } from "../../services/apiCalls";
 
@@ -14,6 +14,7 @@ import { renderComicCard } from "../../utils/renderComicCard";
 
 export function Comics() {
   const [comics, setComics] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //its needed to pass the props from the lib with the type created in routes
   const route = useRoute<RouteProp<IRoute, "Comics">>();
@@ -21,9 +22,12 @@ export function Comics() {
   const { characterId } = route.params;
 
   const handleComics = async () => {
+    console.log(characterId);
     const list = await getComics(characterId);
 
     setComics(list);
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -32,11 +36,22 @@ export function Comics() {
 
   return (
     <Container>
-      <FlatList
-        data={comics}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderComicCard}
-      />
+      {loading ? (
+        <ActivityIndicator
+          style={{ marginTop: 20 }}
+          size={"large"}
+          color={"#FFF"}
+        />
+      ) : (
+        <FlatList
+          data={comics}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={renderComicCard}
+          contentContainerStyle={{ padding: 20 }}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={<EmptyText>No data found :(</EmptyText>}
+        />
+      )}
     </Container>
   );
 }

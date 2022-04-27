@@ -4,6 +4,9 @@ import theme from "../../global/theme";
 
 export const Container = styled.View`
   flex: 1;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
 `;
 export const Poster = styled.Image`
   width: 250px;
