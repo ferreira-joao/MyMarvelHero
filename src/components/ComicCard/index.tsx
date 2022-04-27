@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Poster, Title, Description } from "./styles";
+import { Container, DataContainer, Poster, Title, Description } from "./styles";
 
 interface IComicCard {
   id: number;
@@ -12,11 +12,13 @@ interface IComicCard {
 export function ComicCard({ id, image, title, description }: IComicCard) {
   return (
     <Container>
-      <Poster source={{ uri: image }} resizeMode="cover" />
+      <DataContainer>
+        <Poster source={{ uri: image }} resizeMode="cover" />
 
-      <Title>{title}</Title>
+        <Title>{title}</Title>
 
-      <Description>{description}</Description>
+        <Description>{description}</Description>
+      </DataContainer>
     </Container>
   );
 }
