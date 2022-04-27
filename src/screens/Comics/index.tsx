@@ -22,7 +22,6 @@ export function Comics() {
   const { characterId } = route.params;
 
   const handleComics = async () => {
-    console.log(characterId);
     const list = await getComics(characterId);
 
     setComics(list);
