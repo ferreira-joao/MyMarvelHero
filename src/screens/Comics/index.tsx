@@ -19,7 +19,7 @@ export function Comics() {
   //its needed to pass the props from the lib with the type created in routes
   const route = useRoute<RouteProp<IRoute, "Comics">>();
 
-  const { characterId } = route.params;
+  const { characterId, characterName } = route.params;
 
   const handleComics = async () => {
     const list = await getComics(characterId);
@@ -48,6 +48,7 @@ export function Comics() {
           renderItem={renderComicCard}
           contentContainerStyle={{ padding: 20 }}
           showsVerticalScrollIndicator={false}
+          ListHeaderComponent={}
           ListEmptyComponent={<EmptyText>No data found :(</EmptyText>}
         />
       )}

@@ -33,7 +33,7 @@ export function MainCard({ id, image, name, description }: IMainCard) {
   }
 
   function comicScreen() {
-    navigation.navigate("Comics", { characterId: id });
+    navigation.navigate("Comics", { characterId: id, characterName: name });
   }
 
   return (

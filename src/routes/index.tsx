@@ -8,7 +8,7 @@ import { Comics } from "../screens/Comics";
 //each screen needs to be passed here with params if needed
 export type IRoute = {
   Home: undefined;
-  Comics: { characterId: number };
+  Comics: { characterId: number; characterName: string };
 };
 
 const AppStack = createNativeStackNavigator<IRoute>();
