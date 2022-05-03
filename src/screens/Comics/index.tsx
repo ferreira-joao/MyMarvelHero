@@ -59,7 +59,7 @@ export function Comics() {
           ListHeaderComponent={
             <ComicHeader name={characterName} back={handleBack} />
           }
-          ListEmptyComponent={<EmptyText>No data found :(</EmptyText>}
+          ListEmptyComponent={<EmptyText>No comics found :(</EmptyText>}
         />
       )}
     </Container>
