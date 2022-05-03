@@ -17,7 +17,7 @@ cd MyMarvelHero
 ```
 Add a environment file with two variables containing your private and public key from the Marvel website. Use the names:
 - PUBLIC_KEY
-- PRIVATE_KEY
+- PRIVATE_KEY<br />
 Install the dependencies:
 ```
 yarn
